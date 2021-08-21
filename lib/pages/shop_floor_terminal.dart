@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
+import 'package:forcam_sft_ai/pages/workplace_list.dart';
 
 class ShopFloorTerminal extends StatefulWidget {
   const ShopFloorTerminal({Key? key}) : super(key: key);
@@ -17,6 +18,18 @@ class _ShopFloorTerminalState extends State<ShopFloorTerminal> {
       ),
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => WorkplaceList()),
+                );
+              },
+              child: Text('Retrieve Workplace List'),
+            )
+          ],
         ),
       ),
     );
