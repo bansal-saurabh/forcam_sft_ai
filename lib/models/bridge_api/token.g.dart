@@ -8,16 +8,16 @@ part of 'token.dart';
 
 Token _$TokenFromJson(Map<String, dynamic> json) {
   return Token(
-    json['accessToken'] as String,
-    json['refreshToken'] as String,
-    json['tokenType'] as String,
+    json['access_token'] as String,
+    json['refresh_token'] as String,
+    json['token_type'] as String,
     json['scope'] as String,
   );
 }
 
 Map<String, dynamic> _$TokenToJson(Token instance) => <String, dynamic>{
-      'accessToken': instance.accessToken,
-      'refreshToken': instance.refreshToken,
-      'tokenType': instance.tokenType,
+      'access_token': instance.access_token,
+      'refresh_token': instance.refresh_token,
+      'token_type': instance.token_type,
       'scope': instance.scope,
     };
