@@ -6,27 +6,6 @@ import 'helpers/bridge_api/bridge_auth.dart';
 import 'helpers/bridge_api/workplaces.dart';
 
 void main() {
-  // getHttp();
-
-  // final BridgeAuth bridgeAuth = BridgeAuth();
-  // // Token token = bridgeAuth.getToken() as Token;
-  //
-  // bridgeAuth.getToken().then((result) {
-  //   // print('ACCESS TOKEN: ' + result!.access_token);
-  //   String accessToken = result!.access_token;
-  //
-  //   final Workplaces workplaceHelper = Workplaces();
-  //
-  //   workplaceHelper.getWorkplace(accessToken).then((result) {
-  //     print(result!.properties.number);
-  //   });
-  //
-  //   workplaceHelper.getWorkplaces(accessToken).then((result) {
-  //     print(result!.embedded.workplaces.first.properties.number);
-  //   });
-  //
-  // });
-
   runApp(MyApp());
 }
 

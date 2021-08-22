@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:dio/dio.dart';
 import 'package:forcam_sft_ai/helpers/bridge_api/bridge_auth.dart';
 import 'package:forcam_sft_ai/models/bridge_api/token.dart';
 import 'package:forcam_sft_ai/pages/workplace_list.dart';
+import 'package:forcam_sft_ai/utils/file_picker_util.dart';
 
 class ShopFloorTerminal extends StatefulWidget {
   const ShopFloorTerminal({Key? key}) : super(key: key);
@@ -15,11 +15,6 @@ class _ShopFloorTerminalState extends State<ShopFloorTerminal> {
 
   late final BridgeAuth bridgeAuth;
   late String accessToken;
-
-  // bridgeAuth.getToken().then((result) {
-  // print('ACCESS TOKEN: ' + result!.access_token);
-  // accessToken = result.access_token;
-  // });
 
   @override
   void initState() {
@@ -47,6 +42,30 @@ class _ShopFloorTerminalState extends State<ShopFloorTerminal> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+                      textStyle: TextStyle(
+                        fontSize: 18,
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => FilePickerUtil()),
+                      );
+                    },
+                    child: Text('Authenticate SFT User'),
+                  ),
+                  SizedBox(
+                    height: 50,
+                  ),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+                      textStyle: TextStyle(
+                        fontSize: 18,
+                      ),
+                    ),
                     onPressed: () {
                       Navigator.push(
                         context,
@@ -64,32 +83,7 @@ class _ShopFloorTerminalState extends State<ShopFloorTerminal> {
             }
           },
         ),
-
-        // child: Column(
-        //   mainAxisAlignment: MainAxisAlignment.center,
-        //   children: [
-        //     ElevatedButton(
-        //       onPressed: () {
-        //         Navigator.push(
-        //           context,
-        //           MaterialPageRoute(builder: (context) => WorkplaceList()),
-        //         );
-        //       },
-        //       child: Text('Retrieve Workplace List'),
-        //     )
-        //   ],
-        // ),
-
       ),
     );
-  }
-}
-
-void getHttp() async {
-  try {
-    var response = await Dio().get('https://www.google.com');
-    print(response);
-  } catch (e) {
-    print(e);
   }
 }

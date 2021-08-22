@@ -14,35 +14,14 @@ class WorkplaceList extends StatefulWidget {
 }
 
 class _WorkplaceListState extends State<WorkplaceList> {
-  late String accessToken;
-
   final BridgeAuth bridgeAuth = BridgeAuth();
-  // Token token = bridgeAuth.getToken() as Token;
-
   final Workplaces workplaceHelper = Workplaces();
 
+  late String accessToken;
   late List<Workplace> workplaces;
 
   @override
   void initState() {
-    // bridgeAuth.getToken().then((result) {
-    //   // print('ACCESS TOKEN: ' + result!.access_token);
-    //   accessToken = result!.access_token;
-    //
-    //   workplaceHelper.getWorkplace(accessToken).then((result) {
-    //     print(result!.properties.number);
-    //   });
-    //
-    //   // workplaceHelper.getWorkplaces(accessToken)!.then((result) {
-    //   //   print(result!.embedded.workplaces.first.properties.number);
-    //   //   print(result.embedded.workplaces);
-    //   //
-    //   //   workplaces = result.embedded.workplaces;
-    //   //
-    //   // });
-    //
-    // });
-
     super.initState();
   }
 
@@ -66,9 +45,11 @@ class _WorkplaceListState extends State<WorkplaceList> {
                 itemBuilder: (context, index) {
                   return ListTile(
                     title: Center(
-                      child: Text(snapshot
-                          .data!.embedded.workplaces[index].properties.number
-                          + " : " + snapshot.data!.embedded.workplaces[index].properties.description ),
+                      child: Text(
+                          snapshot.data!.embedded.workplaces[index].properties.number +
+                          " : " +
+                          snapshot.data!.embedded.workplaces[index].properties.description
+                      ),
                     ),
                   );
                 },
@@ -80,15 +61,6 @@ class _WorkplaceListState extends State<WorkplaceList> {
             }
           },
         ),
-
-        // ListView.builder(
-        //   itemCount: workplaces.length,
-        //   itemBuilder: (context, index) {
-        //     return ListTile(
-        //       title: Text(workplaces[index].properties.number),
-        //     );
-        //   },
-        // ),
       ),
     );
   }
